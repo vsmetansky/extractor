@@ -1,1 +1,1 @@
-# Scrapper, that extracts text and media
+# Scraper that extracts text and media
