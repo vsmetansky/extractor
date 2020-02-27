@@ -1,5 +1,7 @@
 import scrapy
 
+from scraper.items import FragmentItem, PageItem
+
 
 class TextSpider(scrapy.Spider):
     name = 'text_spider'
@@ -12,7 +14,9 @@ class TextSpider(scrapy.Spider):
         yield scrapy.Request(self.domain, self.parse)
 
     def parse(self, response):
-        for img in response.xpath('//img').getall():
-            ...
+        images = tuple(FragmentItem(type='image', data=img_src)
+                       for img_src in response.xpath('//img/@src').getall())
+        texts = tuple(FragmentItem(type='text', data=text)
+                      for text in response.xpath('//p/text()').getall())
 
-        
+        return PageItem(url=self.domain, fragments=images+texts)

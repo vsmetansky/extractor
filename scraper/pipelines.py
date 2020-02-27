@@ -1,11 +1,25 @@
-# -*- coding: utf-8 -*-
-
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+from scraper.exporters import XmlPageItemExporter
 
 
-class ScrapperPipeline(object):
+class XmlExportPipeline(object):
+    """Serialize items to XML in specific format"""
+
+    def open_spider(self, spider):
+        self.file = open('data.xml', 'w')
+
+    def close_spider(self, spider):
+        self.file.close()
+
     def process_item(self, item, spider):
+        self._export(self._exporter, item)
         return item
+
+    @property
+    def _exporter(self):
+        exporter = XmlPageItemExporter(self.file)
+        return exporter
+
+    def _export(self, exporter, item):
+        exporter.start_exporting()
+        exporter.export_item(item)
+        exporter.finish_exporting()
