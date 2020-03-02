@@ -18,9 +18,9 @@ def run():
     args = read_args()
     process = CrawlerProcess(get_project_settings())
 
-    process.crawl('text_spider', domain=args.website, page_num=args.page_num)
+    process.crawl('media_spider', domain=args.website, page_num=args.page_num)
     process.start()
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     run()
