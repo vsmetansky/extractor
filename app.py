@@ -18,7 +18,8 @@ def run():
     args = read_args()
     process = CrawlerProcess(get_project_settings())
 
-    process.crawl('media_spider', domain=args.website, page_num=args.page_num)
+    process.crawl('media_spider', base_url=args.website,
+                  page_num=args.page_num)
     process.start()
 
 
