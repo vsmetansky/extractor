@@ -6,20 +6,13 @@ class XmlExportPipeline(object):
 
     def open_spider(self, spider):
         self.file = open('data.xml', 'w')
+        self.exporter = XmlPageItemExporter(self.file)
+        self.exporter.start_exporting()
 
     def close_spider(self, spider):
+        self.exporter.finish_exporting()
         self.file.close()
 
     def process_item(self, item, spider):
-        self._export(self._exporter, item)
+        self.exporter.export_item(item)
         return item
-
-    @property
-    def _exporter(self):
-        exporter = XmlPageItemExporter(self.file)
-        return exporter
-
-    def _export(self, exporter, item):
-        exporter.start_exporting()
-        exporter.export_item(item)
-        exporter.finish_exporting()
