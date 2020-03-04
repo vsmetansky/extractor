@@ -9,7 +9,7 @@ def read_args():
 
     parser.add_argument('website')
     parser.add_argument('-n', '--page-num',
-                        dest='page_num', type=int, default=1)
+                        dest='page_num', type=int, default=10)
 
     return parser.parse_args()
 
