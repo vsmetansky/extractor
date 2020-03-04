@@ -5,7 +5,7 @@ class XmlExportPipeline(object):
     """Serialize items to XML in specific format"""
 
     def open_spider(self, spider):
-        self.file = open('data.xml', 'w')
+        self.file = open(spider.file_name, 'w')
         self.exporter = XmlPageItemExporter(self.file)
         self.exporter.start_exporting()
 
