@@ -1,0 +1,2 @@
+IMAGE = 'image'
+TEXT = 'text'
