@@ -1,5 +1,5 @@
 .vscode
-*.xml
+**/*.xml
 *.sh
 venv
 __pycache__
