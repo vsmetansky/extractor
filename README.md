@@ -12,5 +12,5 @@ just specify it's name as a command line argument.
 ## Running scraper
 ### Linux
 1. cd extractor
-2. bash prepare.sh
+2. bash install.sh
 3. bash start.sh
