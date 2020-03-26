@@ -9,8 +9,9 @@ just specify it's name as a command line argument.
 * Python 3.6 or higher.
 
 
-## Running scraper
+## Quickstart
 ### Linux
+1. git clone https://github.com/vsmetansky/extractor.git
 1. cd extractor
-2. bash install.sh
+2. bash prepare.sh
 3. bash start.sh
