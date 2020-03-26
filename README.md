@@ -1,8 +1,12 @@
 # Scraper that extracts text and media
 
 ## About
-Scraper can extract text and media from any website,
-just specify it's name as a command line argument.
+Given scraper can extract text and media from any website,
+just specify its start url as a command line argument. In addition, 
+data is written into a file in XML format (path to file is specified
+as a command line argument, defaults to data.xml file in current
+directory). You can also provide number of pages you need to scrape
+(defaults to 20).
 
 
 ## Requirements
