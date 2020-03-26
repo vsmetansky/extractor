@@ -1,8 +1,20 @@
+"""Provides 'scraper' with class for XML serialization.
+
+Exported classes:
+    XmlPageItemExporter: Used to serialize data into XML.
+"""
+
 from scrapy.exporters import XmlItemExporter
 from xml.sax.saxutils import XMLGenerator
 
 
 class XmlPageItemExporter(XmlItemExporter):
+    """Used to serialize data into XML and save it to file.
+    
+    Overrides methods of XmlItemExporter for XML serialization
+    in specific format.
+    """
+
     def __init__(self, file, **kwargs):
         self.item_element = 'page'
         self.root_element = 'data'
@@ -29,7 +41,7 @@ class XmlPageItemExporter(XmlItemExporter):
             self._beautify_indent(depth=depth)
         else:
             self.xg.startElement(name, {'type': serialized_value.get('type')})
-            self._xg_characters(str(serialized_value.get('data')))
+            self.xg.characters(str(serialized_value.get('data')))
             self.xg.endElement(name)
         self._beautify_newline()
 

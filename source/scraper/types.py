@@ -1,2 +1,0 @@
-IMAGE = 'image'
-TEXT = 'text'

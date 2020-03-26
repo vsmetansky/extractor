@@ -11,8 +11,8 @@
 
 BOT_NAME = 'scraper'
 
-SPIDER_MODULES = ['scraper.spiders']
-NEWSPIDER_MODULE = 'scraper.spiders'
+SPIDER_MODULES = ('extractor.scraper.spiders',)
+NEWSPIDER_MODULE = 'extractor.scraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -65,8 +65,8 @@ CONCURRENT_REQUESTS = 32
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scraper.pipelines.XmlExportPipeline': 300,
-    'scraper.pipelines.AverageCounterPipeline': 600
+    'extractor.scraper.pipelines.XmlExportPipeline': 300,
+    'extractor.scraper.pipelines.AverageCounterPipeline': 600
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

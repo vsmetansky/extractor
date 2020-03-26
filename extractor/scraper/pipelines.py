@@ -1,11 +1,11 @@
 import logging
 
-from scraper.exporters import XmlPageItemExporter
-from scraper.types import IMAGE, TEXT
+from extractor.scraper.exporters import XmlPageItemExporter
+from extractor.scraper.types import IMAGE, TEXT
 
 
 class XmlExportPipeline(object):
-    """Serialize items to XML in specific format"""
+    """Export items to XML in specific format."""
 
     def open_spider(self, spider):
         self.file = open(spider.file_name, 'w')
@@ -22,7 +22,7 @@ class XmlExportPipeline(object):
 
 
 class AverageCounterPipeline(object):
-    """Count average occurance of fragments"""
+    """Count average occurance of fragments."""
 
     def open_spider(self, spider):
         self.images_num = self.text_num = 0
